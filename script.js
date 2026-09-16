@@ -60,6 +60,7 @@ const searchRoutes = [
   { terms: ['capital', 'gnf', 'milliard', '99', 'durée', 'statutaire', 'anonyme', 'conseil', 'administration', 'forme juridique', 'institutionnel'], id: 'informations-societe', label: 'la fiche de l’entreprise' },
   { terms: ['entreprise', 'natura', 'qui sommes', 'société'], id: 'entreprise', label: "l'entreprise" },
   { terms: ['activité', 'activités', 'vente', 'pétrole', 'approvisionnement', 'distribution', 'livraison', 'hydrocarbure', 'transport', 'logistique', 'consignation', 'affrètement', 'représentation', 'import', 'export', 'commerce', 'négoce', 'participation', 'équipement', 'partenariat'], id: 'activites', label: 'nos activités' },
+  { terms: ['méthode', 'process', 'processus', 'étape', 'étapes', 'offre', 'suivi', 'délai', 'accompagnement'], id: 'methode', label: 'notre méthode' },
   { terms: ['sécurité', 'qualité', 'engagement', 'fiabilité'], id: 'engagements', label: 'nos engagements' },
   { terms: ['kipé', 'kipe', 'conakry', 'siège', 'adresse', 'guinée', 'ratoma'], id: 'implantation', label: 'notre présence' },
   { terms: ['contact', 'devis', 'téléphone', 'email', 'partenaire'], id: 'contact', label: 'le formulaire de contact' }
