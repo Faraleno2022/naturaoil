@@ -113,7 +113,7 @@ button { color: inherit; }
 .section-label--light { color: var(--yellow); }
 .intro { background: var(--paper); }
 .intro-grid { margin-top: 48px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr); gap: 7vw; align-items: start; }
-.display-title { margin: 0; font-family: var(--font-display); font-size: clamp(44px, 6.7vw, 102px); font-weight: 500; line-height: 1.04; letter-spacing: -.065em; }
+.display-title { margin: 0; font-family: var(--font-display); font-size: clamp(44px, 5.35vw, 78px); font-weight: 500; line-height: 1.04; letter-spacing: -.065em; }
 .display-title em { color: var(--green-700); }
 .intro-copy { padding-bottom: 10px; }
 .intro-copy p { margin: 0 0 30px; color: #4d5850; font-size: 18px; line-height: 1.7; }
@@ -207,6 +207,7 @@ button { color: inherit; }
 
 @media (max-width: 1100px) {
   .intro-grid { grid-template-columns: 1fr; gap: 34px; }
+  .display-title { font-size: clamp(44px, 6.7vw, 86px); }
   .intro-copy { max-width: 640px; padding-bottom: 0; }
   .desktop-nav, .nav-contact { display: none; }
   .nav-actions { margin-left: auto; }
@@ -381,4 +382,24 @@ button { color: inherit; }
   .method-steps { margin-top: 44px; grid-template-columns: 1fr; }
   .method-step { padding: 28px 24px 30px; }
   .quote-band { padding-left: 24px; padding-right: 24px; }
+}
+
+/* Visuels d'ambiance ------------------------------------------------- */
+.intro-lead { min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+.intro-figure { margin: 0; overflow: hidden; border-radius: var(--radius-lg); }
+.intro-figure img { width: 100%; height: clamp(180px, 16vw, 240px); object-fit: cover; object-position: center 60%; }
+.commitments-figure { margin: 70px 0 0; overflow: hidden; border-radius: var(--radius-xl); }
+.commitments-figure img { width: 100%; height: clamp(230px, 30vw, 400px); object-fit: cover; object-position: center 22%; }
+
+@media (max-width: 1100px) {
+  .intro-lead { gap: 30px; }
+  .intro-figure img { height: clamp(200px, 26vw, 280px); }
+}
+
+@media (max-width: 760px) {
+  .intro-lead { gap: 26px; }
+  .intro-figure { border-radius: 22px; }
+  .intro-figure img { height: 210px; }
+  .commitments-figure { margin-top: 44px; border-radius: 22px; }
+  .commitments-figure img { height: 240px; }
 }
