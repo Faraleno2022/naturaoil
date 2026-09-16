@@ -112,7 +112,7 @@ button { color: inherit; }
 .section-label span { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-size: 9px; }
 .section-label--light { color: var(--yellow); }
 .intro { background: var(--paper); }
-.intro-grid { margin-top: 48px; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, .65fr); gap: 7vw; align-items: end; }
+.intro-grid { margin-top: 48px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr); gap: 7vw; align-items: start; }
 .display-title { margin: 0; font-family: var(--font-display); font-size: clamp(44px, 6.7vw, 102px); font-weight: 500; line-height: 1.04; letter-spacing: -.065em; }
 .display-title em { color: var(--green-700); }
 .intro-copy { padding-bottom: 10px; }
@@ -206,6 +206,8 @@ button { color: inherit; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (max-width: 1100px) {
+  .intro-grid { grid-template-columns: 1fr; gap: 34px; }
+  .intro-copy { max-width: 640px; padding-bottom: 0; }
   .desktop-nav, .nav-contact { display: none; }
   .nav-actions { margin-left: auto; }
   .menu-button { display: grid; }
