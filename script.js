@@ -57,20 +57,23 @@ searchOpen.addEventListener('click', openSearch);
 searchClose.addEventListener('click', closeSearch);
 
 const searchRoutes = [
+  { terms: ['capital', 'gnf', 'milliard', '99', 'durée', 'statutaire', 'anonyme', 'conseil', 'administration', 'forme juridique', 'institutionnel'], id: 'informations-societe', label: 'la fiche de l’entreprise' },
   { terms: ['entreprise', 'natura', 'qui sommes', 'société'], id: 'entreprise', label: "l'entreprise" },
-  { terms: ['activité', 'activités', 'vente', 'pétrole', 'approvisionnement', 'distribution', 'livraison'], id: 'activites', label: 'nos activités' },
+  { terms: ['activité', 'activités', 'vente', 'pétrole', 'approvisionnement', 'distribution', 'livraison', 'hydrocarbure', 'transport', 'logistique', 'consignation', 'affrètement', 'représentation', 'import', 'export', 'commerce', 'négoce', 'participation', 'équipement', 'partenariat'], id: 'activites', label: 'nos activités' },
   { terms: ['sécurité', 'qualité', 'engagement', 'fiabilité'], id: 'engagements', label: 'nos engagements' },
-  { terms: ['kipé', 'kipe', 'conakry', 'siège', 'adresse', 'guinée'], id: 'implantation', label: 'notre présence' },
+  { terms: ['kipé', 'kipe', 'conakry', 'siège', 'adresse', 'guinée', 'ratoma'], id: 'implantation', label: 'notre présence' },
   { terms: ['contact', 'devis', 'téléphone', 'email', 'partenaire'], id: 'contact', label: 'le formulaire de contact' }
 ];
 
+const normalizeSearch = (value) => value.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
 const runSearch = () => {
-  const query = searchInput.value.trim().toLocaleLowerCase('fr');
+  const query = normalizeSearch(searchInput.value.trim());
   if (!query) {
     searchFeedback.textContent = 'Saisissez un mot-clé pour rechercher dans la page.';
     return;
   }
-  const result = searchRoutes.find((route) => route.terms.some((term) => query.includes(term) || term.includes(query)));
+  const result = searchRoutes.find((route) => route.terms.some((term) => query.includes(normalizeSearch(term)) || normalizeSearch(term).includes(query)));
   if (!result) {
     searchFeedback.textContent = 'Aucun résultat direct. Essayez « livraison », « sécurité », « Kipé » ou « contact ».';
     return;
@@ -113,6 +116,7 @@ const showSlide = (index) => {
     const active = slideIndex === currentSlide;
     slide.classList.toggle('is-active', active);
     slide.setAttribute('aria-hidden', String(!active));
+    slide.inert = !active;
   });
   currentLabel.textContent = String(currentSlide + 1).padStart(2, '0');
   restartProgress();
@@ -160,8 +164,7 @@ contactForm.addEventListener('submit', (event) => {
     return;
   }
 
-  formStatus.textContent = 'Merci ! Votre demande est prête. Connectez ce formulaire à votre service e-mail pour recevoir les messages.';
-  contactForm.reset();
+  formStatus.textContent = 'L’envoi en ligne est indisponible. Votre message n’a pas été transmis ; les informations saisies restent affichées dans ce formulaire.';
   requiredFields.forEach((field) => field.removeAttribute('aria-invalid'));
 });
 
